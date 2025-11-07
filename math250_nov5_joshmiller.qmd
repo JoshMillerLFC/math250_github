@@ -1,0 +1,49 @@
+---
+title: "Inference HW"
+author: "Josh Miller"
+format: html
+embed-resources: true
+---
+
+## Problem 1
+```{r}
+#| message: false
+
+library(ISLR2)
+library(tidyverse)
+data(Carseats)
+
+t.test(Carseats$Price, mu = 110)
+
+ggplot(Carseats, aes(x = Price)) +
+  geom_histogram(binwidth = 5, fill = "skyblue", color = "white")+
+  labs(
+    title = "Distribution of Car Seat Prices",
+    x = "Price ($)",
+    y = "Count"
+  ) +
+  theme_minimal()
+
+```
+Both the histogram and the t-test indicate that the mean price of carseats is not $110. The histogram shows that there is a majority of the data to the right of $110 implying that the true mean price is greater than that. The t-test shows that the mean is $115.795 with a p-value of less than 0.001 this indicates that there is a significant difference between $110 and $115.795. 
+
+## Problem 2
+
+```{r}
+t.test(Carseats$CompPrice, conf.level = 0.90)
+
+```
+* 90% Confidence Level: 126.2391 to 123.7109
+* Sample Mean: 124.975
+* Margin of Error: (126.2391 - 123.7109)/2 = 1.2641
+
+## Problem 3
+
+```{r}
+library(palmerpenguins)
+
+island_specie_t <- table(penguins$species, penguins$island)
+addmargins(island_specie_t)
+
+```
+Contingency table indicating the species of Penguin in the y-axis and the island name in the x-axis. The table also includes marginal counts.
