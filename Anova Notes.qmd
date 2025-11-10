@@ -1,0 +1,26 @@
+---
+title: "Anova Notes"
+author: "Josh Miller"
+format: html
+---
+
+Idea: Compare the variability of the observed group means, x1, x2, ..., xk with the variability within the group. Then we compute an F-Statistic and get a p-value, a low p value represents evidence against the null hypothesis (H0), p-value is the probability that we get data similar to what we got through random chance. 
+
+Anova: H0: all group means are the same H1 = H2 = ... = Hk
+       Ha: At least one group mean is not the same
+       
+To do an Anova we need a categorical and numerical:
+
+1. State the hypotheses
+2. Visualization
+3. Run the test: `aov()`
+4. State a conclusion in ordinary human language
+5. Consider which groups might be different
+
+Assumptions of Anova:
+
+1. Observations are independent of each other
+2. In each group the quantitative variable is normally-distributed (can be broken especially for large samples)
+3. The variance or STD in each group should be the same (can be broken for large samples)
+
+
